@@ -1,0 +1,13 @@
+{
+  "name": "Twilio Messages to LaMetric",
+  "description": "Push a message to a LaMteric device",
+  "repository": "https://github.com/dogeared/twilio-lamteric/tree/master",
+  "keywords": ["spring boot", "solid", "dependency injection"],
+  "success_url": "/",
+  "env": {
+    "BASE_URL": {
+      "description": "The full url to your heroku app. e.g. https://twilio-lametric.herokuapp.com",
+      "value": "changeme"
+    }
+  }
+}
