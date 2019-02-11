@@ -15,6 +15,7 @@ public interface LaMetricService {
 
     StatusLine sendMessage(LaMetricRequest request) throws IOException;
     StatusLine sendMessage(String msg, String iconTitle) throws IOException;
+    StatusLine sendMessage(String msg, Integer iconId) throws IOException;
     StatusLine sendMessage(String msg) throws IOException;
     Optional<LaMetricIcon> findLaMetricIcon(String searchStr);
 }

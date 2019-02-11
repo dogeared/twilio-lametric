@@ -20,12 +20,12 @@ public class LaMetricRequest {
     public static class Frame {
 
         private String text;
-        private String icon;
+        private Object icon;
         private int index;
 
         public Frame() {}
 
-        public Frame(String text, String icon, int index) {
+        public Frame(String text, Object icon, int index) {
             this.text = text;
             this.icon = icon;
             this.index = index;
@@ -44,7 +44,7 @@ public class LaMetricRequest {
             this.text = text;
         }
 
-        public String getIcon() {
+        public Object getIcon() {
             return icon;
         }
 

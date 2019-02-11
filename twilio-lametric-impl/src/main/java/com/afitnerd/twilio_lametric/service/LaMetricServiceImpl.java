@@ -61,14 +61,27 @@ public class LaMetricServiceImpl implements LaMetricService {
     }
 
     @Override
+    public StatusLine sendMessage(String msg, Integer iconId) throws IOException {
+        LaMetricRequest request = new LaMetricRequest();
+        request.getFrames().add(new LaMetricRequest.Frame(msg, iconId, 0));
+        return sendMessage(request);
+    }
+
+    @Override
     public StatusLine sendMessage(String msg) throws IOException {
         if (msg.startsWith("-")) {
             int spaceIndex = msg.indexOf(" ");
-            String iconTitle = msg.substring(1, spaceIndex);
+            String iconIdStr = msg.substring(1, spaceIndex);
+            Integer iconId = null;
+            try {
+                iconId = Integer.parseInt(iconIdStr);
+            } catch (NumberFormatException ne) {
+                iconId = LaMetricIcon.defaultIcon().getId();
+            }
             msg = msg.substring(spaceIndex+1);
-            return sendMessage(msg, iconTitle);
+            return sendMessage(msg, iconId);
         }
-        return sendMessage(msg, LaMetricIcon.defaultIcon().getTitle());
+        return sendMessage(msg, LaMetricIcon.defaultIcon().getId());
     }
 
     @Override
