@@ -11,7 +11,7 @@ So, why not mash them up?
 
 Here's the game:
 
-* Text any message to 702-766-4224 (only US and Canada)
+* Text any message to **702-766-4224** (only US and Canada)
     * As a bonus, format your message like: `-<icon id> <msg>` where icon ids can be found at: [https://developer.lametric.com/icons](https://developer.lametric.com/icons) 
 * You'll get a response referencing an easter egg from my blog post about this (soon to drop).
     * For now, you can cheat using the codes [here](twilio-lametric-api/src/main/java/com/afitnerd/twilio_lametric/service/CodeService.java).
