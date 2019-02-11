@@ -57,7 +57,7 @@ public class TwilioRequestServiceImpl implements TwilioRequestService {
             // if the code matches, let's send their original message to the LaMetric
             laMetricService.sendMessage(userMessageInfo.getMessage());
             userMessageInfoRepository.delete(request.getFrom());
-            response.getMessage().setBody("Yes!\nYou sent the correct secret code.\nTune into Twitch to see it on the big board!");
+            response.getMessage().setBody("Yes!\nYou sent the correct secret code.\nTune into https://twitch.tv/afitnerd to see it on the big board!");
             return response;
         } else {
             // if the code doesn't match, let's remind them of the code they need
