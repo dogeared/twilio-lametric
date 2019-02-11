@@ -39,7 +39,7 @@ public class LaMetricServiceImpl implements LaMetricService {
 
     @PostConstruct
     void setup() {
-        this.icons = getIcons();
+        // this.icons = getIcons();
     }
 
     @Override
