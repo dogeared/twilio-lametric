@@ -32,7 +32,7 @@ public class TwilioRequestServiceImpl implements TwilioRequestService {
 
     @Override
     public TwilioResponse processMessage(TwilioRequest request) throws IOException {
-        String body = (request.getBody() != null) ? request.getBody().trim().toLowerCase() : "";
+        String body = (request.getBody() != null) ? request.getBody().trim() : "";
 
         // let's see if we can find this user in the repository
         UserMessageInfo userMessageInfo = userMessageInfoRepository.find(request.getFrom());

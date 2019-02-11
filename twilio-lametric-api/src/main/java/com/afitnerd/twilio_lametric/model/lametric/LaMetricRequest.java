@@ -5,6 +5,8 @@ import java.util.List;
 
 public class LaMetricRequest {
 
+    public static int MAX_MSG_LENGTH = 100;
+
     private List<Frame> frames = new ArrayList<>();
 
     public List<Frame> getFrames() {
@@ -30,6 +32,11 @@ public class LaMetricRequest {
         }
 
         public String getText() {
+            if (text == null) {
+                return null;
+            } else if (text.length() > MAX_MSG_LENGTH) {
+                return text.substring(0, MAX_MSG_LENGTH);
+            }
             return text;
         }
 
