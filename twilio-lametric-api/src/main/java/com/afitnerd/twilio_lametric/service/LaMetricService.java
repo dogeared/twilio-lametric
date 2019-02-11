@@ -14,6 +14,7 @@ public interface LaMetricService {
     String LAMETRIC_ICONS_API_URI = "/api/v2/icons";
 
     StatusLine sendMessage(LaMetricRequest request) throws IOException;
-    StatusLine sendMessage(String msg, String iconCode) throws IOException;
+    StatusLine sendMessage(String msg, String iconTitle) throws IOException;
+    StatusLine sendMessage(String msg) throws IOException;
     Optional<LaMetricIcon> findLaMetricIcon(String searchStr);
 }

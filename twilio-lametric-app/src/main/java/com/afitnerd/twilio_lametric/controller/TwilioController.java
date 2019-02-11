@@ -1,7 +1,11 @@
 package com.afitnerd.twilio_lametric.controller;
 
+import com.afitnerd.twilio_lametric.model.repository.UserMessageInfo;
 import com.afitnerd.twilio_lametric.model.twilio.TwilioRequest;
 import com.afitnerd.twilio_lametric.model.twilio.TwilioResponse;
+import com.afitnerd.twilio_lametric.repository.UserMessageInfoRepository;
+import com.afitnerd.twilio_lametric.service.CodeService;
+import com.afitnerd.twilio_lametric.service.TwilioRequestService;
 import com.afitnerd.twilio_lametric.service.TwilioResponseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -15,33 +19,26 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 import static com.afitnerd.twilio_lametric.config.AppConfig.API_PATH;
-import static com.afitnerd.twilio_lametric.service.TwilioResponseService.MESSAGE_COMMAND;
 
 @RestController
 @RequestMapping(API_PATH)
 public class TwilioController {
 
-    private TwilioResponseService twilioResponseService;
+
+    private TwilioRequestService twilioRequestService;
 
     private static final Logger log = LoggerFactory.getLogger(TwilioController.class);
     private ObjectMapper mapper = new ObjectMapper();
 
-    public TwilioController(TwilioResponseService twilioResponseService) {
-        this.twilioResponseService = twilioResponseService;
+    public TwilioController(TwilioRequestService twilioRequestService) {
+        this.twilioRequestService = twilioRequestService;
     }
 
     @RequestMapping(value = "/twilio", method = RequestMethod.POST, headers = "Accept=application/xml", produces=MediaType.APPLICATION_XML_VALUE)
-    public TwilioResponse twilio(@ModelAttribute TwilioRequest req) throws IOException {
+    public TwilioResponse twilio(@ModelAttribute TwilioRequest request) throws IOException {
 
-        log.debug(mapper.writeValueAsString(req));
+        log.debug(mapper.writeValueAsString(request));
 
-        String body = (req.getBody() != null) ? req.getBody().trim().toLowerCase() : "";
-
-        if (!MESSAGE_COMMAND.equals(body)) {
-            return twilioResponseService.getErrorResponse();
-        }
-
-        // TODO setup real service
-        return twilioResponseService.getErrorResponse();
+        return twilioRequestService.processMessage(request);
     }
 }

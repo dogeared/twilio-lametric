@@ -53,11 +53,22 @@ public class LaMetricServiceImpl implements LaMetricService {
     }
 
     @Override
-    public StatusLine sendMessage(String msg, String iconCode) throws IOException {
-        LaMetricIcon icon = findLaMetricIcon(iconCode).orElse(LaMetricIcon.defaultIcon());
+    public StatusLine sendMessage(String msg, String iconTitle) throws IOException {
+        LaMetricIcon icon = findLaMetricIcon(iconTitle).orElse(LaMetricIcon.defaultIcon());
         LaMetricRequest request = new LaMetricRequest();
         request.getFrames().add(new LaMetricRequest.Frame(msg, icon.getCode(), 0));
         return sendMessage(request);
+    }
+
+    @Override
+    public StatusLine sendMessage(String msg) throws IOException {
+        if (msg.startsWith("-")) {
+            int spaceIndex = msg.indexOf(" ");
+            String iconTitle = msg.substring(1, spaceIndex);
+            msg = msg.substring(spaceIndex+1);
+            return sendMessage(msg, iconTitle);
+        }
+        return sendMessage(msg, LaMetricIcon.defaultIcon().getTitle());
     }
 
     @Override

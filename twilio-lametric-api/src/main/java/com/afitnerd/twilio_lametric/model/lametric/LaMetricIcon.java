@@ -62,9 +62,9 @@ public class LaMetricIcon {
 
     public static LaMetricIcon defaultIcon() {
         LaMetricIcon icon = new LaMetricIcon();
-        icon.setId(1190);
-        icon.setTitle("heartbeat");
-        icon.setCode("a1190");
+        icon.setId(61);
+        icon.setTitle("heart");
+        icon.setCode("a61");
         icon.setType("movie");
         return icon;
     }
