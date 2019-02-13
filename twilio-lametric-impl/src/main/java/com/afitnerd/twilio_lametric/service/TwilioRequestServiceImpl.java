@@ -48,7 +48,7 @@ public class TwilioRequestServiceImpl implements TwilioRequestService {
             userMessageInfo.setCode(CodeService.CODES[codeNum]);
             userMessageInfoRepository.save(userMessageInfo);
 
-            response.getMessage().setBody("Message received! Send back the secret code for (" + (codeNum+1) + ")");
+            response.getMessage().setBody("Message received! Send back the secret code for (" + (codeNum+1) + ") found on http://bit.ly/OktaHelloMicah");
             return response;
         }
 
