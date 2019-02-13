@@ -13,6 +13,6 @@ Here's the game:
 
 * Text any message to **702-766-4224** (only US and Canada)
     * As a bonus, format your message like: `-<icon id> <msg>` where icon ids can be found at: [https://developer.lametric.com/icons](https://developer.lametric.com/icons) 
-* You'll get a response referencing an easter egg from my [blog](https://developer.okta.com/blog/2019/02/12/welcome-micah) post referencing this app.
+* You'll get a response referencing an easter egg from my [blog post](https://developer.okta.com/blog/2019/02/12/welcome-micah).
 * Text the proper reply to the same number, and your message will be sent to my [LaMetric Digital](https://lametric.com/) message board.
 * You can tune into this [twitch](https://www.twitch.tv/afitnerd) stream to see your message display as well as that of other people  
