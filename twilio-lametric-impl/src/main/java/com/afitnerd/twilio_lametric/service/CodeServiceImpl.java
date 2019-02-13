@@ -21,6 +21,6 @@ public class CodeServiceImpl implements CodeService {
 
     @Override
     public int generateCode() {
-        return random.nextInt(5);
+        return random.nextInt(CODES.length);
     }
 }
